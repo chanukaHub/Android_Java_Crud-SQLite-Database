@@ -87,11 +87,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void deleteInfo(String userName){
+    public int deleteInfo(String userName){
         SQLiteDatabase db = getReadableDatabase();
         String selection = UsersMaster.Users.COLUMN_NAME_USERNAME+" LIKE ?";
         String[] selectionArgs = { userName };
-        db.delete(UsersMaster.Users.TABLE_NAME,selection,selectionArgs);
+        int value=db.delete(UsersMaster.Users.TABLE_NAME,selection,selectionArgs);
+        return value;
     }
 
     public int updateInfo(String username, String password){
@@ -103,7 +104,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String selection = UsersMaster.Users.COLUMN_NAME_USERNAME+ " LIKE ?";
         String[] selectionArgs ={username};
 
-        int count =db.update(UsersMaster.Users.TABLE_NAME,values,selection,selectionArgs);
-        return count;
+        int value =db.update(UsersMaster.Users.TABLE_NAME,values,selection,selectionArgs);
+        return value;
     }
 }
