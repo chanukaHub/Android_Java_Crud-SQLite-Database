@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Data Handling</string>
+    <string name="username">User name : </string>
+    <string name="password">password :</string>
+</resources>
